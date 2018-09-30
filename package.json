@@ -1,0 +1,53 @@
+{
+  "name": "equipment-manger",
+  "version": "1.0.0",
+  "description": "An application to keep track of engine hours by pulling from the Samsara API and having them saved in a .csv file. Created for Florida Drilling.",
+  "main": "index.js",
+  "scripts": {
+    "electron": "electron .",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "postinstall": "electron-builder install-app-deps",
+    "start": "npm install && electron .",
+    "pack": "build --dir",
+    "dist": "build"
+  },
+  "build": {
+    "appId": "yourappid",
+    "dmg": {
+      "contents": [
+        {
+          "x": 110,
+          "y": 150
+        },
+        {
+          "x": 240,
+          "y": 150,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ]
+    },
+    "win": {
+      "target": "NSIS",
+      "icon": "build/icon.ico"
+    }
+  },
+  "author": "Mohammed Chisti",
+  "license": "ISC",
+  "dependencies": {
+    "auto-launch": "^5.0.5",
+    "axios": "^0.18.0",
+    "csv-stringify": "^4.0.1",
+    "node-schedule": "^1.3.0"
+  },
+  "devDependencies": {
+    "electron": "^3.0.0",
+    "electron-builder": "^20.28.4"
+  }
+}
